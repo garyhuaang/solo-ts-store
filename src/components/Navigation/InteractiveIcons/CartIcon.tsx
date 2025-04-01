@@ -1,10 +1,11 @@
+import { Button } from '@/components/ui/button'
 import { ShoppingCart } from 'lucide-react'
 
 function CartIcon() {
   return (
-    <div>
+    <Button size="default" variant="outline">
       <ShoppingCart />
-    </div>
+    </Button>
   )
 }
 

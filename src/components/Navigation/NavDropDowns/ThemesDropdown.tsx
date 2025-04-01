@@ -1,4 +1,3 @@
-import { links } from '@/lib'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,9 +8,20 @@ import {
 import { Moon } from 'lucide-react'
 import { Button } from '../../ui/button'
 
-import { Link } from 'react-router-dom'
+import { themeLinks } from '@/lib'
+import { useAppDispatch } from '@/hooks'
+import { setTheme, Theme } from '@/features/themeSlice'
 
 function ThemesDropdown() {
+  const dispatch = useAppDispatch()
+
+  const handleThemeToggle = (e: React.SyntheticEvent) => {
+    const theme = e.currentTarget.innerHTML?.toLocaleLowerCase()
+    if (!theme) return
+
+    dispatch(setTheme(theme as Theme))
+  }
+
   return (
     <nav className="lg:hidden w-40:flex self-center">
       <DropdownMenu>
@@ -21,10 +31,13 @@ function ThemesDropdown() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-13 h-38 absolute p-4 -left-6 top-3">
-          {links.map((link) => (
+          {themeLinks.map((link) => (
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Link to={link.path}>{link.label}</Link>
+              <DropdownMenuItem
+                className="capitalize"
+                onClick={(e: React.SyntheticEvent) => handleThemeToggle(e)}
+              >
+                {link.label}
               </DropdownMenuItem>
             </DropdownMenuGroup>
           ))}
