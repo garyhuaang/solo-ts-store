@@ -24,9 +24,9 @@ function NavLogo({
     <Button
       size={size}
       variant={variant}
-      className="flex self-center  p-2 rounded-lg"
+      className="hidden lg:flex self-center  p-2 rounded-lg"
     >
-      <Link to="/" className="hidden lg:flex items-center">
+      <Link to="/" className="  items-center">
         <Armchair />
       </Link>
     </Button>

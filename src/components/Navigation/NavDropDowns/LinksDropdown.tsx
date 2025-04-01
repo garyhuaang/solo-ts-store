@@ -16,7 +16,7 @@ function LinksDropdown() {
     <nav className="lg:hidden w-40:flex self-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
+          <Button variant="default">
             <AlignLeft />
           </Button>
         </DropdownMenuTrigger>
