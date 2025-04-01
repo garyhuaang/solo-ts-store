@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Form } from 'react-router-dom'
+import { Form, Link } from 'react-router-dom'
 
 function Login() {
   return (
@@ -19,7 +19,10 @@ function Login() {
           </div>
 
           <div className="text-center pt-10">
-            Not a member yet? <Button variant="link">Register</Button>
+            Not a member yet?
+            <Button asChild variant="link" size="lg">
+              <Link to="/register">Reigster</Link>
+            </Button>
           </div>
         </Form>
       </Card>
