@@ -1,4 +1,14 @@
+import { Link, Outlet } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { NavBar } from '@/components'
+
 function HomeLayout() {
-  return <h1 className='text-4xl'>HomeLayout Page</h1>;
+  return (
+    <div className="text-4xl">
+      HomeLayout Page
+      <NavBar />
+      <Outlet />
+    </div>
+  )
 }
-export default HomeLayout;
+export default HomeLayout
