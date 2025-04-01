@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { About, Cart, Home, Products } from './pages'
+import { About, Cart, Home, Login, Products, Register } from './pages'
 import Landing from './pages/Landing'
 
 const router = createBrowserRouter([
@@ -24,6 +24,14 @@ const router = createBrowserRouter([
         element: <Cart />,
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
   },
 ])
 

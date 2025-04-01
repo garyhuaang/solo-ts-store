@@ -9,7 +9,7 @@ function CartIcon() {
   return (
     <Button size="default" variant="outline" onClick={() => navigate('/cart')}>
       <span
-        className="absolute flex justify-center items-center h-6 w-6 bg-primary rounded-full top-7 right-4 shadow-md
+        className="absolute flex justify-center items-center h-6 w-6 bg-primary rounded-full top-[3.5rem] right-4 shadow-md
       text-white "
       >
         {totalCartItems}
