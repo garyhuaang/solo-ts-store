@@ -8,7 +8,7 @@ function Login() {
     <div className="flex w-screen h-screen justify-center items-center">
       <Card className="w-96 h-[26rem] place-content-center">
         <Form className=" flex flex-col gap-4 p-6">
-          <h1 className="pb-4 text-3xl text-center">Login</h1>
+          <h1 className="pb-4 text-3xl text-center font-bold">Login</h1>
 
           <Input type="email" placeholder="Email" />
           <Input type="password" placeholder="Password" />
@@ -18,7 +18,7 @@ function Login() {
             <Button variant="secondary">Guest User</Button>
           </div>
 
-          <div className="text-center pt-10">
+          <div className="text-center text-sm pt-10">
             Not a member yet?
             <Button asChild variant="link" size="lg">
               <Link to="/register">Reigster</Link>
