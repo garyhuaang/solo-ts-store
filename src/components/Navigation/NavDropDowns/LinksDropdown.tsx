@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { AlignLeft } from 'lucide-react'
-import { Button } from '../ui/button'
+import { Button } from '../../ui/button'
 
 import { Link } from 'react-router-dom'
 
@@ -24,7 +24,7 @@ function LinksDropdown() {
           {links.map((link) => (
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Link to={link.path}> {link.label}</Link>
+                <Link to={link.path}>{link.label}</Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
           ))}

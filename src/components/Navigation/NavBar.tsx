@@ -1,5 +1,6 @@
-import { CartIcon, NavLogo, ThemeToggle } from '../InteractiveIcons'
-import LinksDropdown from '../InteractiveIcons/LinksDropdown'
+import { CartIcon, NavLogo } from './InteractiveIcons'
+import LinksDropdown from './NavDropDowns/LinksDropdown'
+import ThemesDropdown from './NavDropDowns/ThemesDropdown'
 import NavLinks from './NavLinks'
 
 export function NavBar() {
@@ -9,7 +10,7 @@ export function NavBar() {
       <LinksDropdown />
       <NavLinks />
       <div className="flex items-center justify-end">
-        <ThemeToggle />
+        <ThemesDropdown />
         <CartIcon />
       </div>
     </nav>
