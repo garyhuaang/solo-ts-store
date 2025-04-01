@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 function NavLinks() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden  md:flex items-center justify-center">
       <NavigationMenuList>
         {links.map((link) => (
           <NavigationMenuItem>

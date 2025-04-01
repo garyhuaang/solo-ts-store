@@ -3,14 +3,14 @@ import NavLinks from './NavLinks'
 
 export function NavBar() {
   return (
-    <div className="flex items-center justify-between">
+    <nav className="flex bg-muted h-16 p-6 md:justify-between md:items-center sm:justify-start sm:gap-x-4">
       <NavLogo />
       <NavLinks />
-      <div className="flex items-center">
+      <div className="flex items-center justify-end">
         <ThemeToggle />
         <CartIcon />
       </div>
-    </div>
+    </nav>
   )
 }
 
