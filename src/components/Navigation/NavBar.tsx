@@ -1,29 +1,16 @@
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'
-import { links } from '@/lib'
-
-import { Link } from 'react-router-dom'
+import { CartIcon, NavLogo, ThemeToggle } from '../InteractiveIcons'
+import NavLinks from './NavLinks'
 
 export function NavBar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        {links.map((link) => (
-          <NavigationMenuItem>
-            <Link to={link.path}>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                {link.label}
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <div className="flex items-center justify-between">
+      <NavLogo />
+      <NavLinks />
+      <div className="flex items-center">
+        <ThemeToggle />
+        <CartIcon />
+      </div>
+    </div>
   )
 }
 
