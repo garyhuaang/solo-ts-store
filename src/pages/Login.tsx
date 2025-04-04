@@ -14,6 +14,7 @@ export const action =
   async ({ request }): Promise<Response | null> => {
     const formData = await request.formData()
     const data = Object.fromEntries(formData)
+
     try {
       const response: AxiosResponse = await customFetch.post(
         '/auth/local',
@@ -22,10 +23,10 @@ export const action =
       const username = response.data.user.username
       const jwt = response.data.jwt
       store.dispatch(loginUser({ username, jwt }))
+
       return redirect('/')
     } catch (error) {
-      console.log(error)
-
+      console.log('🚀 ~ error:\n', error)
       return null
     }
   }
@@ -39,9 +40,9 @@ function Login() {
           <CardTitle className="text-center">Login</CardTitle>
         </CardHeader>
 
-        <Form method="POST">
-          <Input type="email" placeholder="Email" className="mb-2" />
-          <Input type="password" placeholder="Password" />
+        <Form method="POST" className="flex flex-col gap-2">
+          <Input type="email" name="identifier" placeholder="Email" />
+          <Input type="password" name="password" placeholder="Password" />
 
           <div className="flex flex-col gap-2 w-full h-full pt-6">
             <SubmitButton text="Login" />
