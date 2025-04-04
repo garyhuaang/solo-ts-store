@@ -3,13 +3,9 @@ import { NavLogo } from '@/components/Navigation/InteractiveIcons'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { setUsername } from '@/features/userSlice'
-import { useAppDispatch } from '@/hooks'
 import { Form, Link } from 'react-router-dom'
 
 function Login() {
-  const dispatch = useAppDispatch()
-
   return (
     <div className="flex w-screen h-screen justify-center items-center">
       <Card className="w-96 h-[30rem] place-content-center">
