@@ -3,11 +3,19 @@ import { NavLogo } from '@/components/Navigation/InteractiveIcons'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+
 import { loginUser } from '@/features/userSlice'
+import { useAppDispatch } from '@/hooks'
 import customFetch from '@/lib/utils/customFetch'
 import { ReduxStore } from '@/store'
 import { AxiosResponse } from 'axios'
-import { ActionFunction, Form, Link, redirect } from 'react-router-dom'
+import {
+  ActionFunction,
+  Form,
+  Link,
+  redirect,
+  useNavigate,
+} from 'react-router-dom'
 
 export const action =
   (store: ReduxStore): ActionFunction =>
@@ -20,9 +28,9 @@ export const action =
         '/auth/local',
         data
       )
-      const username = response.data.user.username
       const jwt = response.data.jwt
-      store.dispatch(loginUser({ username, jwt }))
+      const username = response.data.user.username
+      store.dispatch(loginUser({ jwt, username }))
 
       return redirect('/')
     } catch (error) {
@@ -32,6 +40,25 @@ export const action =
   }
 
 function Login() {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const loginAsGuest = async (): Promise<void> => {
+    try {
+      const response: AxiosResponse = await customFetch.post('/auth/local', {
+        identifier: 'test@test.com',
+        password: 'secret',
+      })
+      const jwt = response.data.jwt
+      const username = response.data.user.username
+
+      dispatch(loginUser({ jwt, username }))
+      navigate('/')
+    } catch (error) {
+      console.log('🚀 ~ loginAsGuest ~ error:\n', error)
+    }
+  }
+
   return (
     <div className="h-screen grid place-items-center">
       <Card className="w-96 p-6">
@@ -44,9 +71,11 @@ function Login() {
           <Input type="email" name="identifier" placeholder="Email" />
           <Input type="password" name="password" placeholder="Password" />
 
-          <div className="flex flex-col gap-2 w-full h-full pt-6">
+          <div className="flex flex-col gap-2 mt-6">
             <SubmitButton text="Login" />
-            <Button variant="secondary">Guest User</Button>
+            <Button type="button" variant="secondary" onClick={loginAsGuest}>
+              Guest User
+            </Button>
           </div>
 
           <p className="text-center pt-10">
