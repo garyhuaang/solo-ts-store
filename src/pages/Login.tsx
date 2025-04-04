@@ -1,14 +1,30 @@
+import SubmitButton from '@/components/Buttons/SubmitButton'
 import { NavLogo } from '@/components/Navigation/InteractiveIcons'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import { setUsername } from '@/features/userSlice'
+import { useAppDispatch } from '@/hooks'
 import { Form, Link } from 'react-router-dom'
 
 function Login() {
+  const dispatch = useAppDispatch()
+
+  const handleSubmit = (
+    e: React.BaseSyntheticEvent<Event, EventTarget & Element, EventTarget>
+  ) => {
+    if (e.nativeEvent.target) {
+      const values = [...e.nativeEvent.target.children]
+    }
+
+    console.log(values)
+    // dispatch(setUsername(values[1].value as string))
+  }
+
   return (
     <div className="flex w-screen h-screen justify-center items-center">
       <Card className="w-96 h-[30rem] place-content-center">
-        <Form className=" flex flex-col gap-4 p-6">
+        <Form className=" flex flex-col gap-4 p-6" onSubmit={handleSubmit}>
           <div className="flex flex-col justify-center  pb-4">
             <NavLogo size="default" variant="ghost" />
             <h1 className=" text-3xl text-center font-bold">Login</h1>
@@ -18,7 +34,7 @@ function Login() {
           <Input type="password" placeholder="Password" />
 
           <div className="flex flex-col gap-4 w-full h-full pt-4">
-            <Button variant="default">Login</Button>
+            <SubmitButton text="Login" />
             <Button variant="secondary">Guest User</Button>
           </div>
 
