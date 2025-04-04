@@ -10,21 +10,10 @@ import { Form, Link } from 'react-router-dom'
 function Login() {
   const dispatch = useAppDispatch()
 
-  const handleSubmit = (
-    e: React.BaseSyntheticEvent<Event, EventTarget & Element, EventTarget>
-  ) => {
-    if (e.nativeEvent.target) {
-      const values = [...e.nativeEvent.target.children]
-    }
-
-    console.log(values)
-    // dispatch(setUsername(values[1].value as string))
-  }
-
   return (
     <div className="flex w-screen h-screen justify-center items-center">
       <Card className="w-96 h-[30rem] place-content-center">
-        <Form className=" flex flex-col gap-4 p-6" onSubmit={handleSubmit}>
+        <Form className=" flex flex-col gap-4 p-6" method="POST">
           <div className="flex flex-col justify-center  pb-4">
             <NavLogo size="default" variant="ghost" />
             <h1 className=" text-3xl text-center font-bold">Login</h1>
