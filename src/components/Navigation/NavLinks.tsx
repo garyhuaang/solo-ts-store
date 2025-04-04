@@ -2,8 +2,8 @@ import {
   NavigationMenu,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
-import { links } from '@/lib'
 
+import { links } from '@/lib/links'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/button'
 

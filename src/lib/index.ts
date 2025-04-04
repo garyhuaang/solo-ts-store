@@ -1,2 +1,2 @@
 export * from './index'
-export * from './utils/links'
+export * from './links'
