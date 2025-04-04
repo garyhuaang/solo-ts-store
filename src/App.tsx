@@ -3,6 +3,7 @@ import { About, Cart, Home, Login, Products, Register } from './pages'
 import Landing from './pages/Landing'
 
 import { action as loginUser } from './pages/Login'
+import { store } from './store'
 
 const router = createBrowserRouter([
   {

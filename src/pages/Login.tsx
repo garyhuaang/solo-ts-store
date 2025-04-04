@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { loginUser } from '@/features/userSlice'
-import { useAppDispatch } from '@/hooks'
 import customFetch from '@/lib/utils/customFetch'
 import { ReduxStore } from '@/store'
 import { AxiosResponse } from 'axios'
@@ -34,17 +33,17 @@ export const action =
 function Login() {
   return (
     <div className="h-screen grid place-items-center">
-      <Card className="w-96 bg-muted">
+      <Card className="w-96 p-6">
         <CardHeader>
           <NavLogo size="default" variant="ghost" />
           <CardTitle className="text-center">Login</CardTitle>
         </CardHeader>
 
         <Form method="POST">
-          <Input type="email" placeholder="Email" />
+          <Input type="email" placeholder="Email" className="mb-2" />
           <Input type="password" placeholder="Password" />
 
-          <div className="flex flex-col gap-4 w-full h-full pt-4">
+          <div className="flex flex-col gap-2 w-full h-full pt-6">
             <SubmitButton text="Login" />
             <Button variant="secondary">Guest User</Button>
           </div>
