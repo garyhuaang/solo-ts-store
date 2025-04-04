@@ -5,8 +5,8 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import { links } from '@/lib'
 
+import { links } from '@/lib/links'
 import { Link } from 'react-router-dom'
 
 function NavLinks() {

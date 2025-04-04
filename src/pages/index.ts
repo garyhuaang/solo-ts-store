@@ -1,4 +1,6 @@
-export { default as Home } from './Home'
+export { default as HomeLayout } from './HomeLayout'
 export { default as About } from './About'
 export { default as Products } from './Products'
 export { default as Cart } from './Cart'
+export { default as Checkout } from './Checkout'
+export { default as Orders } from './Orders'
