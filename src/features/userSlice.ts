@@ -2,43 +2,41 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export type User = {
-  id: number
   username: string
-  email: string
-  provider: string
-  confirmed: boolean
-  blocked: boolean
-  createdAt: string
-  updatedAt: string
-}
-
-export type LoginResponse = {
   jwt: string
-  user: User
 }
 
-const initialState = {
-  username: '',
-  email: '',
-  password: '',
+type UserState = {
+  user: User | null
+}
+
+const getUserFromLocalStorage = () => {
+  const user = localStorage.getItem('user')
+  return !user ? null : JSON.parse(user)
+}
+
+const initialState: UserState = {
+  user: getUserFromLocalStorage(),
 }
 
 const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
-    setUsername: (state, action: PayloadAction<string>) => {
-      state.username = action.payload
+    loginUser: (state, action: PayloadAction<User>) => {
+      const user = action.payload
+      state.user = user
+      localStorage.setItem('user', JSON.stringify(user))
+      alert('Login successful')
     },
-    setEmail: (state, action: PayloadAction<string>) => {
-      state.email = action.payload
-    },
-    setPassword: (state, action: PayloadAction<string>) => {
-      state.password = action.payload
+    logoutUser: (state) => {
+      state.user = null
+      localStorage.removeItem('user')
+      alert('Logged out!')
     },
   },
 })
 
-export const { setUsername, setEmail, setPassword } = userSlice.actions
+export const { loginUser, logoutUser } = userSlice.actions
 
 export default userSlice.reducer
