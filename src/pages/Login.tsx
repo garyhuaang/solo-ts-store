@@ -3,33 +3,7 @@ import { NavLogo } from '@/components/Navigation/InteractiveIcons'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { loginUser } from '@/features/userSlice'
-import customFetch from '@/lib/utils/customFetch'
-import { ReduxStore } from '@/store'
-import { AxiosResponse } from 'axios'
-import { ActionFunction, Form, Link, redirect } from 'react-router-dom'
-
-export const action =
-  (store: ReduxStore): ActionFunction =>
-  async ({ request }): Promise<Response | null> => {
-    const formData = await request.formData()
-    const data = Object.fromEntries(formData)
-
-    try {
-      const response: AxiosResponse = await customFetch.post(
-        '/auth/local',
-        data
-      )
-      const username = response.data.user.username
-      const jwt = response.data.jwt
-      store.dispatch(loginUser({ username, jwt }))
-
-      return redirect('/')
-    } catch (error) {
-      console.log('🚀 ~ error:\n', error)
-      return null
-    }
-  }
+import { Form, Link } from 'react-router-dom'
 
 function Login() {
   return (
