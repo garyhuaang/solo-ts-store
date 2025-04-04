@@ -5,8 +5,6 @@ import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './store.ts'
 
-// reorder comment for git
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <App />
