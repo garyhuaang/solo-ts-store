@@ -24,10 +24,10 @@ function NavLogo({
     <Button
       size={size}
       variant={variant}
-      className="hidden lg:flex self-center  p-2 rounded-lg"
+      className="hidden md:flex self-center rounded-lg p-0"
     >
-      <Link to="/" className="  items-center">
-        <Armchair />
+      <Link to="/" className="w-3 h-3 flex items-center justify-center">
+        <Armchair style={{ width: '2rem', height: '2rem' }} />
       </Link>
     </Button>
   )

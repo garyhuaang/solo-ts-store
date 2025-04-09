@@ -5,7 +5,7 @@ import NavLinks from './NavLinks'
 
 export function NavBar() {
   return (
-    <nav className="flex bg-muted h-16 p-6 justify-between sm:gap-x-4">
+    <nav className="flex bg-muted h-16 p-6 justify-between gap-x-4">
       <NavLogo />
       <LinksDropdown />
       <NavLinks />

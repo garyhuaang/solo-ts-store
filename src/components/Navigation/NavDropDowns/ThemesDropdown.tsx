@@ -10,7 +10,7 @@ import { Button } from '../../ui/button'
 
 import { themeLinks } from '@/lib'
 import { useAppDispatch } from '@/hooks'
-import { setTheme, Theme } from '@/features/themeSlice'
+import { setTheme, Theme } from '@/features/theme/themeSlice'
 
 function ThemesDropdown() {
   const dispatch = useAppDispatch()

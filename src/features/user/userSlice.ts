@@ -1,21 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-
-export type User = {
-  username: string
-  jwt: string
-}
-
-type UserState = {
-  user: User | null
-}
+import { User, UserState } from '@/lib'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const getUserFromLocalStorage = () => {
-  const user = localStorage.getItem('user')
-  return !user ? null : JSON.parse(user)
+  const user = localStorage.getItem('user') || null
+  return user ? JSON.parse(user) : null
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
   user: getUserFromLocalStorage(),
 }
 
@@ -26,13 +17,11 @@ const userSlice = createSlice({
     loginUser: (state, action: PayloadAction<User>) => {
       const user = action.payload
       state.user = user
-      localStorage.setItem('user', JSON.stringify(user))
-      alert('Login successful')
+      localStorage.setItem('user', JSON.stringify(action.payload))
     },
     logoutUser: (state) => {
       state.user = null
       localStorage.removeItem('user')
-      alert('Logged out!')
     },
   },
 })

@@ -1,14 +1,14 @@
-import { NavBar } from '@/components'
 import Header from '@/components/Header/Header'
+import { NavBar } from '@/components'
 import { Outlet } from 'react-router-dom'
 
 function Home() {
   return (
-    <div>
+    <>
       <Header />
       <NavBar />
       <Outlet />
-    </div>
+    </>
   )
 }
 

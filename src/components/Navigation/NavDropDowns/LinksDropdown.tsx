@@ -13,11 +13,11 @@ import { Link } from 'react-router-dom'
 
 function LinksDropdown() {
   return (
-    <nav className="lg:hidden w-40:flex self-center">
+    <nav className="flex md:hidden self-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="default">
-            <AlignLeft />
+          <Button className="items-center rounded-lg !p-2">
+            <AlignLeft style={{ width: '1.9rem', height: '2rem' }} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-13 h-38 absolute p-4 -left-6 top-3">

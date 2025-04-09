@@ -9,7 +9,7 @@ import { Button } from '../ui/button'
 
 function NavLinks() {
   return (
-    <NavigationMenu className="hidden  lg:flex items-center justify-center">
+    <NavigationMenu className="hidden md:flex items-center justify-center">
       <NavigationMenuList>
         {links.map((link) => (
           <Button variant="link">

@@ -1,4 +1,4 @@
-import { ThemeLinks } from '@/features/themeSlice'
+import { ThemeLinks } from '@/features/theme/themeSlice'
 
 export const links = [
   { path: '/', label: 'Home' },
